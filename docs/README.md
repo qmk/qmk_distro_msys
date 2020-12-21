@@ -1,4 +1,6 @@
-# CURRENTLY BETA: USE AT OWN RISK
+::: warning STATUS: BETA
+USE AT YOUR OWN RISK
+:::
 
 Want to get started with [QMK Firmware](https://qmk.fm) quickly? Running Windows 8/10 and want to avoid installation headaches? Look no further!
 

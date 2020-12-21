@@ -6,7 +6,7 @@
 ![Build Status](https://github.com/zvecr/qmk_distro_msys/workflows/CI/badge.svg)
 [![Discord](https://img.shields.io/discord/440868230475677696.svg?logo=discord&color=7289DA)](https://discord.gg/Uq7gcHh)
 
-# CURRENTLY BETA: USE AT OWN RISK
+# STATUS: BETA - USE AT YOUR OWN RISK
 
 ## Documentation
 
