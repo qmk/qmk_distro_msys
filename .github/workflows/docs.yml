@@ -1,0 +1,32 @@
+name: Generate Docs
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - 'docs/**'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    container: qmkfm/base_container
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - name: Build docs
+      run: |
+        yarn install
+        yarn build
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BASE_BRANCH: master
+        BRANCH: gh-pages
+        FOLDER: .build/docs
+        GIT_CONFIG_EMAIL: hello@qmk.fm
