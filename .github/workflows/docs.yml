@@ -10,12 +10,11 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    container: qmkfm/base_container
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
+
+    - uses: actions/setup-node@v2
 
     - name: Build docs
       run: |
