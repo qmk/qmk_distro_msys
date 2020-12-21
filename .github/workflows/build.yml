@@ -4,10 +4,14 @@ on:
   push:
     branches:
     - main
+    paths-ignore:
+    - 'docs/**'
   release:
     types:
       - published
   pull_request:
+    paths-ignore:
+    - 'docs/**'
 
 jobs:
   build:
