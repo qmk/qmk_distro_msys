@@ -47,6 +47,7 @@ jobs:
         rm -rf .build/msys64/home/*
         rm -rf .build/msys64/dev/*
         rm -rf .build/msys64/etc/mtab
+        rm -rf .build/msys64/etc/hosts
         rm -rf .build/msys64/var/cache/pacman/pkg/*
         mkdir -p .build/msys64/dev/shm
         mkdir -p .build/msys64/dev/mqueue
