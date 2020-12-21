@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - main
+  release:
+    types:
+      - published
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Download/Unpack MSYS
+      run: |
+        curl -L -O https://github.com/msys2/msys2-installer/releases/download/2020-11-09/msys2-base-x86_64-20201109.tar.xz
+        tar -xvf msys2-base-x86_64-20201109.tar.xz --one-top-level=.build
+
+
+    - name: Update MSYS
+      shell: powershell
+      run: |
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Su --noconfirm"
+
+    - name: Install QMK cli
+      shell: powershell
+      run: |
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman --needed --noconfirm --disable-download-timeout -S pactoys-git"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacboy sync --needed --noconfirm --disable-download-timeout base-devel: toolchain:x clang:x git: unzip: python3-pip:x avr-binutils:x avr-gcc:x avr-libc:x arm-none-eabi-binutils:x arm-none-eabi-gcc:x arm-none-eabi-newlib:x avrdude:x bootloadhid:x dfu-programmer:x dfu-util:x teensy-loader-cli:x"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "python3 -m pip install --no-binary qmk qmk"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "qmk"
+
+    - name: Patch Up MSYS
+      run: |
+        sed -i '1i#!/usr/bin/env python3\' .build/msys64/mingw64/bin/qmk-script.py
+        cp *.post .build/msys64/etc/post-install/
+        rm -rf .build/msys64/home/*
+        rm -rf .build/msys64/dev/*
+        rm -rf .build/msys64/etc/mtab
+        rm -rf .build/msys64/var/cache/pacman/pkg/*
+        mkdir -p .build/msys64/dev/shm
+        mkdir -p .build/msys64/dev/mqueue
+
+    - name: Create Installer
+      run: |
+        iscc install.iss
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: artifacts
+        path: .build/QMK_MSYS.exe
+
+  publish:
+    runs-on: ubuntu-latest
+
+    needs: [build]
+
+    if: github.event.release.tag_name
+
+    steps:
+      - uses: actions/download-artifact@v2
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./artifacts/QMK_MSYS.exe
+          asset_name: QMK_MSYS.exe
+          asset_content_type: application/octet-stream
