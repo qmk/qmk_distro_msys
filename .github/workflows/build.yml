@@ -74,7 +74,7 @@ jobs:
 
       - name: Run Install
         run: |
-          start /wait QMK_MSYS.exe  /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
+          start /wait ./artifacts/QMK_MSYS.exe  /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
           %APPDATA%\QMK_MSYS\usr\bin\mintty.exe /usr/bin/bash -l -c "MSYSTEM=MINGW64 exec -l bash -l -c 'qmk -h > ~/output.txt'"
           type %HOME%\output.txt
 
