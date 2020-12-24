@@ -17,26 +17,21 @@ jobs:
   build:
     runs-on: windows-latest
 
-    defaults:
-      run:
-        shell: bash
-
     steps:
     - uses: actions/checkout@v2
 
     - name: Download/Unpack MSYS
+      shell: bash
       run: |
         curl -L -O https://github.com/msys2/msys2-installer/releases/download/2020-11-09/msys2-base-x86_64-20201109.tar.xz
         tar -xvf msys2-base-x86_64-20201109.tar.xz --one-top-level=.build
 
     - name: Update MSYS
-      shell: powershell
       run: |
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Su --noconfirm"
 
     - name: Install QMK cli
-      shell: powershell
       run: |
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman --needed --noconfirm --disable-download-timeout -S pactoys-git"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacboy sync --needed --noconfirm --disable-download-timeout base-devel: toolchain:x clang:x git: unzip: python3-pip:x avr-binutils:x avr-gcc:x avr-libc:x arm-none-eabi-binutils:x arm-none-eabi-gcc:x arm-none-eabi-newlib:x avrdude:x bootloadhid:x dfu-programmer:x dfu-util:x teensy-loader-cli:x"
@@ -44,6 +39,7 @@ jobs:
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "qmk"
 
     - name: Patch Up MSYS
+      shell: bash
       run: |
         rm -rf .build/msys64/home/*
         rm -rf .build/msys64/dev/*
@@ -56,6 +52,7 @@ jobs:
         sed -i '1i#!/usr/bin/env python3\' .build/msys64/mingw64/bin/qmk-script.py
 
     - name: Create Installer
+      shell: bash
       run: |
         iscc install.iss
 
@@ -76,11 +73,15 @@ jobs:
         run: |
           Start-Process ./artifacts/QMK_MSYS.exe -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART" -wait
 
+      - name: Run QMK cli
+        shell: cmd
+        run: |
+          %HOME%/AppData/Roaming/QMK_MSYS/usr/bin/mintty.exe /usr/bin/bash -l -c "MSYSTEM=MINGW64 exec -l bash -l -c 'qmk -h > ~/output.txt'"
+
       - name: Test QMK output
         shell: bash
         run: |
-          $HOME/AppData/Roaming/QMK_MSYS/usr/bin/mintty.exe /usr/bin/bash -l -c "MSYSTEM=MINGW64 exec -l bash -l -c 'qmk -h > ~/output.txt'"
-          cat $HOME/output.txt
+          cat $HOME/output.txt | grep "CLI wrapper for running QMK commands"
 
   publish:
     runs-on: ubuntu-latest
