@@ -3,9 +3,11 @@
 
 #define MyAppName "QMK MSYS"
 #define MyAppDir "QMK_MSYS"
-#define MyAppVersion "0.0.1"
 #define MyAppPublisher "QMK"
 #define MyAppURL "https://qmk.fm"
+#ifndef MyAppVersion
+# define MyAppVersion "0.0.0"
+#endif
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
