@@ -1,7 +1,7 @@
 module.exports = {
-    dest:'.build/docs',
-    temp:'.build/temp',
-    base:'/qmk_distro_msys/',
+    dest: '.build/docs',
+    temp: '.build/temp',
+    base: '/qmk_distro_msys/',
     head: [
         ['link', { rel: 'icon', href: '/logo.png' }]
     ],
@@ -11,5 +11,12 @@ module.exports = {
         logo: '/logo.png',
         search: false,
         lastUpdated: false,
-    }
+        sidebar: [
+            '/',
+            '/guide',
+            '/faq',
+            '/dev',
+        ],
+    },
+    plugins: [ 'vuepress-plugin-medium-zoom'],
 };
