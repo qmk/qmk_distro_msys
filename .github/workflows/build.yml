@@ -61,32 +61,10 @@ jobs:
         name: artifacts
         path: .build/QMK_MSYS.exe
 
-  test:
-    runs-on: windows-latest
-
-    needs: [build]
-
-    steps:
-      - uses: actions/download-artifact@v2
-
-      - name: Run Install
-        run: |
-          Start-Process ./artifacts/QMK_MSYS.exe -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART" -wait
-
-      - name: Run QMK cli
-        shell: cmd
-        run: |
-          %HOME%/AppData/Roaming/QMK_MSYS/usr/bin/mintty.exe /usr/bin/bash -l -c "MSYSTEM=MINGW64 exec -l bash -l -c 'qmk -h > ~/output.txt'"
-
-      - name: Test QMK output
-        shell: bash
-        run: |
-          cat $HOME/output.txt | grep "CLI wrapper for running QMK commands"
-
   publish:
     runs-on: ubuntu-latest
 
-    needs: [build, test]
+    needs: [build]
 
     if: github.event.release.tag_name
 
