@@ -64,10 +64,22 @@ jobs:
         name: artifacts
         path: .build/QMK_MSYS.*
 
+  test:
+    runs-on: windows-latest
+
+    needs: [build]
+
+    steps:
+      - uses: actions/download-artifact@v2
+
+      - name: Run Install
+        run: |
+          Start-Process ./artifacts/QMK_MSYS.exe -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART" -wait
+
   publish:
     runs-on: ubuntu-latest
 
-    needs: [build]
+    needs: [build, test]
 
     if: github.event.release.tag_name
 
