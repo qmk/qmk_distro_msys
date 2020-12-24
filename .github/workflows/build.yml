@@ -52,7 +52,7 @@ jobs:
         sed -i '1i#!/usr/bin/env python3\' .build/msys64/mingw64/bin/qmk-script.py
 
     - name: Create Installer
-      shell: bash
+      shell: 'bash {0}'
       env:
         VERSION: ${{github.event.release.tag_name}}
       run: |
