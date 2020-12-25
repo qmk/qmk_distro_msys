@@ -76,6 +76,13 @@ jobs:
         run: |
           Start-Process ./artifacts/QMK_MSYS.exe -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART" -wait
 
+      - name: Run QMK cli
+        env:
+          MSYSTEM: MINGW64
+        shell: cmd
+        run: |
+           %HOME%AppData\Roaming\QMK_MSYS\usr\bin\bash.exe -l -c 'qmk -h' | findstr /c:"CLI wrapper for running QMK commands"
+
   publish:
     runs-on: ubuntu-latest
 
