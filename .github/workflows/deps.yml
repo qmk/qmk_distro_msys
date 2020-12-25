@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: main
 
     - name: Update to latest
       run: |
@@ -26,6 +28,7 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
+        base: main
         delete-branch: true
         author: QMK Bot <hello@qmk.fm>
         committer: QMK Bot <hello@qmk.fm>
