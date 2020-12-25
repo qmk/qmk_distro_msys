@@ -11,3 +11,7 @@ Want to get started with [QMK Firmware](https://qmk.fm) quickly? Running Windows
 <img :src="$withBase('/terminal.png')" alt="terminal example" style="display: block; margin: 0 auto;">
 
 Bundling MSYS2 + QMK CLI together, this installer package aims to give you a QMK build environment with as little effort as possible.
+
+<p align="center">
+  <a class="button" href="https://github.com/zvecr/qmk_distro_msys/releases">Latest Version →</a>
+</p>
