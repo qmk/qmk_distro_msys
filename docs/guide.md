@@ -1,6 +1,6 @@
 # Getting Started
 
-1. Install the [latest release](https://github.com/zvecr/qmk_distro_msys/releases)  
+1. Install the [latest release](https://github.com/qmk/qmk_distro_msys/releases)  
 <img :src="$withBase('/install.png')" alt="install example" width="70%">
 1. Open the `QMK MSYS` shortcut  
 <img :src="$withBase('/shortcut.png')" alt="shortcut example" width="70%">

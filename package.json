@@ -1,7 +1,7 @@
 {
   "name": "qmk_distro_msys",
   "description": "The one-click installer for MSYS2 + QMK CLI",
-  "repository": "git@github.com:zvecr/qmk_distro_msys.git",
+  "repository": "git@github.com:qmk/qmk_distro_msys.git",
   "author": "zvecr <git@zvecr.com>",
   "devDependencies": {
     "vuepress": "^1.7.1",

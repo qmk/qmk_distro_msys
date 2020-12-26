@@ -10,7 +10,7 @@ Found something that is broken or could be improved?
 
 The best place to get quick support is going to be on our [Discord](https://discord.gg/Uq7gcHh). There is usually somebody online, and there are a bunch of very helpful people there.
 
-Otherwise raise an issue at <https://github.com/zvecr/qmk_distro_msys/issues>, with any details you can provide.
+Otherwise raise an issue at <https://github.com/qmk/qmk_distro_msys/issues>, with any details you can provide.
 
 ## Documentation
 
