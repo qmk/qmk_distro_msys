@@ -4881,6 +4881,11 @@ media-typer@0.3.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
+medium-zoom@^1.0.4:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/medium-zoom/-/medium-zoom-1.0.6.tgz#9247f21ca9313d8bbe9420aca153a410df08d027"
+  integrity sha512-UdiUWfvz9fZMg1pzf4dcuqA0W079o0mpqbTnOz5ip4VGYX96QjmbM+OgOU/0uOzAytxC0Ny4z+VcYQnhdifimg==
+
 memory-fs@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/memory-fs/-/memory-fs-0.4.1.tgz#3a9a20b8462523e447cfbc7e8bb80ed667bfc552"
@@ -7602,6 +7607,13 @@ vuepress-plugin-container@^2.0.2:
   dependencies:
     "@vuepress/shared-utils" "^1.2.0"
     markdown-it-container "^2.0.0"
+
+vuepress-plugin-medium-zoom@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-medium-zoom/-/vuepress-plugin-medium-zoom-1.1.9.tgz#d0e77cca52a2e1c4a4ab94ecc35f3377f834fd92"
+  integrity sha512-kmHdTkoHez7zB8r1EE0ySLQnnf7Cpdie3LPI2h7FwKbvK+DKSGOsJ9WAVLWZ1WInzv+LppGz94f8l76B+nOThA==
+  dependencies:
+    medium-zoom "^1.0.4"
 
 vuepress-plugin-smooth-scroll@^0.0.3:
   version "0.0.3"
