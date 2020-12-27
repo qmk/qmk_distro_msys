@@ -39,9 +39,13 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
+Source: "qmk_driver_installer.exe"; DestDir: {tmp}; Flags: deleteafterinstall
+Source: "drivers.txt"; DestDir: {tmp}; Flags: deleteafterinstall
 Source: "icon.ico"; DestDir: "{app}"; Flags: ignoreversion
 Source: ".build\msys64\*"; DestDir: "{userappdata}\{#MyAppDir}\"; Flags: ignoreversion recursesubdirs createallsubdirs
-; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+
+[RUN]
+Filename: "{tmp}\qmk_driver_installer.exe"; WorkingDir: "{tmp}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{userappdata}\{#MyAppDir}\usr\bin\mintty.exe"; Parameters: "-i ""{app}\icon.ico"" -t ""{#MyAppName}"" /usr/bin/bash -l -c ""MSYSTEM=MINGW64 exec -l bash"""; IconFilename: "{app}\icon.ico"
