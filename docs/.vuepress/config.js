@@ -5,7 +5,7 @@ module.exports = {
         ['link', { rel: 'icon', href: '/logo.png' }]
     ],
     title: 'QMK MSYS',
-    description: 'The one-click installer for MSYS2 + QMK CLI',
+    description: 'The one-click installer for MSYS2 + QMK CLI on Windows',
     themeConfig: {
         nav: [
             { text: 'Discord', link: 'https://discord.gg/Uq7gcHh' },
