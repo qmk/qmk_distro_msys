@@ -42,6 +42,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "drivers\*"; DestDir: {tmp}; Flags: deleteafterinstall
 Source: ".build\msys64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
+[Dirs]
+Name:"{app}\"; Permissions:everyone-modify
+
 [RUN]
 Filename: "{tmp}\qmk_driver_installer.exe"; WorkingDir: "{tmp}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."
 
