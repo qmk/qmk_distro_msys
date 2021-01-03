@@ -11,7 +11,7 @@
 1. Profit!  
 <img :src="$withBase('/finish.png')" alt="built firmware example" width="70%">
 
-::: tip Next Steps
+## Next Steps
 The [QMK Tutorial](https://docs.qmk.fm/#/newbs_building_firmware) will walk you through creating a keymap for your keyboard.
 :::
 

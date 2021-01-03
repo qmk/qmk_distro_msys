@@ -21,6 +21,6 @@ Bundling MSYS2 + QMK CLI together, this installer package aims to give you a QMK
 
 <img :src="$withBase('/terminal.png')" alt="terminal example" style="display: block; margin: 0 auto;">
 
-Want to use QMK Firmware on Linux or macOS? Go directly to the [Tutorial](https://docs.qmk.fm/#/newbs).
+Not using Windows? Go directly to the [Tutorial](https://docs.qmk.fm/#/newbs) to get started.
 
 <br>
