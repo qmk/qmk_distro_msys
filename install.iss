@@ -48,5 +48,5 @@ Source: ".build\msys64\*"; DestDir: "{userappdata}\{#MyAppDir}\"; Flags: ignorev
 Filename: "{tmp}\qmk_driver_installer.exe"; WorkingDir: "{tmp}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."
 
 [Icons]
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{userappdata}\{#MyAppDir}\usr\bin\mintty.exe"; Parameters: "-i ""{app}\icon.ico"" -t ""{#MyAppName}"" /usr/bin/bash -l -c ""MSYSTEM=MINGW64 exec -l bash"""; IconFilename: "{app}\icon.ico"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{userappdata}\{#MyAppDir}\usr\bin\mintty.exe"; Parameters: "-i ""{app}\icon.ico"" -t ""{#MyAppName}"" /usr/bin/bash -l -c ""MSYSTEM=MINGW64 exec -l bash"""; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{userappdata}\{#MyAppDir}\usr\bin\mintty.exe"; Parameters: "-i ""{app}\icon.ico"" -T ""{#MyAppName}"" /usr/bin/bash -l -c ""MSYSTEM=MINGW64 exec -l bash"""; IconFilename: "{app}\icon.ico"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{userappdata}\{#MyAppDir}\usr\bin\mintty.exe"; Parameters: "-i ""{app}\icon.ico"" -T ""{#MyAppName}"" /usr/bin/bash -l -c ""MSYSTEM=MINGW64 exec -l bash"""; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
