@@ -1,12 +1,14 @@
 # QMK MSYS
 
-> The one-click installer for MSYS2 + QMK CLI
+> A Windows one-click installer for the QMK CLI
 
 [![Current Version](https://img.shields.io/github/tag/qmk/qmk_distro_msys.svg)](https://github.com/qmk/qmk_distro_msys/tags)
 ![Build Status](https://github.com/qmk/qmk_distro_msys/workflows/CI/badge.svg)
 [![Discord](https://img.shields.io/discord/440868230475677696.svg?logo=discord&color=7289DA)](https://discord.gg/Uq7gcHh)
 
-# STATUS: BETA - USE AT YOUR OWN RISK
+# STATUS: BETA USE AT YOUR OWN RISK
+
+We think it's probably ok, but it's a brand new thing that hasn't been tested much.
 
 ## Documentation
 
