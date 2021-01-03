@@ -39,8 +39,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "qmk_driver_installer.exe"; DestDir: {tmp}; Flags: deleteafterinstall
-Source: "drivers.txt"; DestDir: {tmp}; Flags: deleteafterinstall
+Source: "drivers\qmk_driver_installer.exe"; DestDir: {tmp}; Flags: deleteafterinstall
+Source: "drivers\drivers.txt"; DestDir: {tmp}; Flags: deleteafterinstall
 Source: ".build\msys64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [RUN]
