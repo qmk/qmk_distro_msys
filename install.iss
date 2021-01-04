@@ -26,7 +26,7 @@ DisableProgramGroupPage=yes
 ;PrivilegesRequired=lowest
 OutputDir=.build
 OutputBaseFilename={#MyAppDir}
-SetupIconFile=icon.ico
+SetupIconFile=src\icon.ico
 Compression=lzma2/max
 SolidCompression=yes
 UninstallDisplayIcon={app}\icon.ico
@@ -39,14 +39,15 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "qmk_driver_installer.exe"; DestDir: {tmp}; Flags: deleteafterinstall
-Source: "drivers.txt"; DestDir: {tmp}; Flags: deleteafterinstall
-Source: "icon.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: ".build\msys64\*"; DestDir: "{userappdata}\{#MyAppDir}\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "drivers\*"; DestDir: {tmp}; Flags: deleteafterinstall
+Source: ".build\msys64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+
+[Dirs]
+Name:"{app}\"; Permissions:everyone-modify
 
 [RUN]
 Filename: "{tmp}\qmk_driver_installer.exe"; WorkingDir: "{tmp}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."
 
 [Icons]
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{userappdata}\{#MyAppDir}\usr\bin\mintty.exe"; Parameters: "-i ""{app}\icon.ico"" -T ""{#MyAppName}"" /usr/bin/bash -l -c ""MSYSTEM=MINGW64 exec -l bash"""; IconFilename: "{app}\icon.ico"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{userappdata}\{#MyAppDir}\usr\bin\mintty.exe"; Parameters: "-i ""{app}\icon.ico"" -T ""{#MyAppName}"" /usr/bin/bash -l -c ""MSYSTEM=MINGW64 exec -l bash"""; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\usr\bin\mintty.exe"; Parameters: "-i ""{app}\icon.ico"" -T ""{#MyAppName}"" /usr/bin/bash -l -c ""MSYSTEM=MINGW64 exec -l bash"""; IconFilename: "{app}\icon.ico"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\usr\bin\mintty.exe"; Parameters: "-i ""{app}\icon.ico"" -T ""{#MyAppName}"" /usr/bin/bash -l -c ""MSYSTEM=MINGW64 exec -l bash"""; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
