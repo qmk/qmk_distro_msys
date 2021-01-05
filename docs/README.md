@@ -7,7 +7,7 @@ footer: This project is maintained by QMK collaborators and contributors like yo
 
 <p align="center">
   <a class="button" href="./guide.html">Get Started →</a>
-  <a class="button secondary" href="https://github.com/qmk/qmk_distro_msys/releases">Latest Version ↓</a>
+  <a class="button secondary" href="https://github.com/qmk/qmk_distro_msys/releases/latest">Latest Version ↓</a>
 </p>
 
 ::: warning STATUS: BETA
