@@ -126,6 +126,6 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "beta"
           prerelease: true
-          title: "beta"
+          title: "Latest Beta"
           files: |
             ./artifacts/QMK_MSYS.*
