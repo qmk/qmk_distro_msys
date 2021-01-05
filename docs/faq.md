@@ -32,7 +32,7 @@ python3 -m pip install qmk --upgrade
 
 In the tab dropdown menu, select `Settings` which opens a code editor showing a JSON configuration file. Insert the example profiles shown below under the profiles key.
 
-Note that the examples assume that you have QMK MSYS installed to the default location.
+Note that the example below assumes that you have QMK MSYS installed to the default location.
 
 ```json
 "profiles": {
@@ -44,7 +44,7 @@ Note that the examples assume that you have QMK MSYS installed to the default lo
       "name": "QMK MSYS2",
       "commandline": "%PROGRAMFILES%/QMK_MSYS/msys2_shell.cmd -defterm -no-start -mingw64",
       "icon": "%PROGRAMFILES%/QMK_MSYS/icon.ico"
-    },
+    }
 ```
 
 ## More Coming Soon...
