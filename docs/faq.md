@@ -26,6 +26,27 @@ pacman -Su
 python3 -m pip install qmk --upgrade
 ```
 
+## How do I configure Windows Terminal?
+
+[Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab), which supports various shells, can also be extended to support QMK MSYS.
+
+In the tab dropdown menu, select `Settings` which opens a code editor showing a JSON configuration file. Insert the example profiles shown below under the profiles key.
+
+Note that the examples assume that you have QMK MSYS installed to the default location.
+
+```json
+"profiles": {
+  "list":
+  [
+    // ...
+    {
+      "guid": "{1ca2e875-5a87-40f8-b55c-e7ec84354a92}",
+      "name": "QMK MSYS2",
+      "commandline": "%PROGRAMFILES%/QMK_MSYS/msys2_shell.cmd -defterm -no-start -mingw64",
+      "icon": "%PROGRAMFILES%/QMK_MSYS/icon.ico"
+    },
+```
+
 ## More Coming Soon...
 
 ::: tip Need help with something?
