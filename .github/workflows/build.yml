@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: falti/dotenv-action@latest
+    - uses: falti/dotenv-action@v0.2.5
 
     - name: Download/Unpack MSYS
       shell: bash
