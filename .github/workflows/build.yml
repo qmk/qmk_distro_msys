@@ -20,10 +20,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - uses: c-py/action-dotenv-to-setenv@v2
+      with:
+        env-file: .env
+
     - name: Download/Unpack MSYS
       shell: bash
       run: |
-        curl -L -O https://github.com/msys2/msys2-installer/releases/download/2020-11-09/msys2-base-x86_64-20201109.tar.xz
+        curl -L -O ${{env.MSYS_URL}}
         tar -xvf msys2-base-x86_64-*.tar.xz --one-top-level=.build
 
     - name: Update MSYS
