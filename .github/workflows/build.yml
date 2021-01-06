@@ -21,11 +21,12 @@ jobs:
     - uses: actions/checkout@v2
 
     - uses: falti/dotenv-action@v0.2.5
+      id: dotenv
 
     - name: Download/Unpack MSYS
       shell: bash
       run: |
-        curl -L -O ${{env.MSYS_URL}}
+        curl -L -O ${{ steps.dotenv.outputs.msys_url }}
         tar -xvf msys2-base-x86_64-*.tar.xz --one-top-level=.build
 
     - name: Update MSYS
