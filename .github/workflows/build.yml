@@ -20,9 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: c-py/action-dotenv-to-setenv@v2
-      with:
-        env-file: .env
+    - uses: falti/dotenv-action@latest
 
     - name: Download/Unpack MSYS
       shell: bash
