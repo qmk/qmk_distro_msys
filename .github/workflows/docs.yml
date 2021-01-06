@@ -7,6 +7,10 @@ on:
     paths:
     - 'docs/**'
     - '.github/workflows/docs.yml'
+  pull_request:
+    paths:
+    - 'docs/**'
+    - '.github/workflows/docs.yml'
 
 jobs:
   generate:
@@ -23,6 +27,7 @@ jobs:
         yarn build
 
     - name: Deploy
+      if: ${{ github.event_name != 'pull_request' }}
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
