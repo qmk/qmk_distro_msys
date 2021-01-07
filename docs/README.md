@@ -10,10 +10,6 @@ footer: This project is maintained by QMK collaborators and contributors like yo
   <a class="button secondary" href="https://github.com/qmk/qmk_distro_msys/releases/latest">Latest Version ↓</a>
 </p>
 
-::: warning STATUS: BETA
-USE AT YOUR OWN RISK. We think it's probably ok, but it's a brand new thing that hasn't been tested much.
-:::
-
 Want to get started with [QMK Firmware](https://qmk.fm) quickly? Running Windows 8/10 and want to avoid installation headaches? Look no further!
 
 
