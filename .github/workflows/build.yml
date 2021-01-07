@@ -53,6 +53,7 @@ jobs:
         mkdir -p .build/msys64/dev/mqueue
         cp -rf src/* .build/msys64/
         sed -i '1i#!/usr/bin/env python3\' .build/msys64/mingw64/bin/qmk-script.py
+        echo "VERSION_ID=$GITHUB_SHA" >> .build/msys64/etc/qmk-release
 
     - name: Create Installer
       shell: 'bash {0}'
