@@ -45,7 +45,7 @@ jobs:
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "qmk"
 
     - name: Patch Up MSYS
-      shell: bash
+      shell: 'bash {0}'
       run: |
         rm -rf .build/msys64/home/*
         rm -rf .build/msys64/dev/*
@@ -60,6 +60,7 @@ jobs:
         echo "VERSION=${VERSION:-2.0.0}" >> .build/msys64/etc/qmk-release
 
     - name: Create Installer
+      shell: 'bash {0}'
       run: |
         iscc install.iss //DMyAppVersion=${VERSION:-2.0.0}
         sha256sum .build/QMK_MSYS.exe > .build/QMK_MSYS.exe.sha256
