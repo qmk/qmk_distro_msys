@@ -22,11 +22,11 @@ jobs:
 
     steps:
     - name: Configure ramdisk
-      shell: bash
+      shell: cmd
       run: |
         choco install imdisk -y
         imdisk -a -s 4G -m X: -p "/fs:ntfs /q /y"
-        cmd /c mklink /J ${GITHUB_WORKSPACE} X:
+        mklink /D %GITHUB_WORKSPACE%\.build X:
 
     - uses: actions/checkout@v2
 
