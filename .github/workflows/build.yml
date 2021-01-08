@@ -21,6 +21,13 @@ jobs:
       VERSION: ${{github.event.release.tag_name}}
 
     steps:
+    - name: Configure ramdisk
+      shell: bash
+      run: |
+        choco install imdisk -y
+        imdisk -a -s 4G -m X: -p "/fs:ntfs /q /y"
+        mklink /D ${GITHUB_WORKSPACE} X:
+
     - uses: actions/checkout@v2
 
     - uses: falti/dotenv-action@v0.2.5
