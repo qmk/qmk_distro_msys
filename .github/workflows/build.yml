@@ -26,7 +26,7 @@ jobs:
       run: |
         choco install imdisk -y
         imdisk -a -s 4G -m X: -p "/fs:ntfs /q /y"
-        mklink /D ${GITHUB_WORKSPACE} X:
+        cmd /c mklink /J ${GITHUB_WORKSPACE} X:
 
     - uses: actions/checkout@v2
 
