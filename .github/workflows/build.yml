@@ -17,6 +17,9 @@ jobs:
   build:
     runs-on: windows-latest
 
+    env:
+      VERSION: ${{github.event.release.tag_name}}
+
     steps:
     - uses: actions/checkout@v2
 
@@ -57,9 +60,6 @@ jobs:
         echo "VERSION=${VERSION:-2.0.0}" >> .build/msys64/etc/qmk-release
 
     - name: Create Installer
-      shell: 'bash {0}'
-      env:
-        VERSION: ${{github.event.release.tag_name}}
       run: |
         iscc install.iss //DMyAppVersion=${VERSION:-2.0.0}
         sha256sum .build/QMK_MSYS.exe > .build/QMK_MSYS.exe.sha256
