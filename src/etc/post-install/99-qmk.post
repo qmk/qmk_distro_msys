@@ -20,3 +20,5 @@ maybe_qmk_welcome () {
 if [ "$MSYSTEM" == "MINGW64" ]; then
   maybe_qmk_welcome
 fi
+
+MSYS2_PS1='\[\e]0;\w\a\]\n\[\e[32m\][\u@\h \[\e[0m\]\w\[\e[32m\]]$\[\e[0m\] '
