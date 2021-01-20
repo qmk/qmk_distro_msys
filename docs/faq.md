@@ -1,5 +1,11 @@
 # Frequently Asked Questions
 
+## Why is `<action>` so slow?
+
+This is a general issue with MSYS2. File IO heavy operations, such as git queries or compilation are just generally slower under MSYS2. Current QMK build processes exaggerate the problem (for example in its discovery of available keyboards). More advanced users might be better served by one of the [other available environments](https://docs.qmk.fm/#/newbs_getting_started?id=set-up-your-environment). 
+
+<https://github.com/qmk/qmk_distro_msys/issues/23> is tracking QMKs portion of the problem.
+
 ## Can I run this alongside regular MSYS2?
 
 As it installs to its own location, both can be installed at the same time. However its worth noting the home directory would be shared between the two.
