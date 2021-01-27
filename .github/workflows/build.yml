@@ -87,7 +87,7 @@ jobs:
           MSYSTEM: MINGW64
         shell: cmd
         run: |
-            "C:\Program Files\QMK_MSYS\usr\bin\bash.exe" -l -c 'qmk -h' | findstr /c:"CLI wrapper for running QMK commands"
+            "%ProgramFiles%\QMK_MSYS\usr\bin\bash.exe" -l -c 'qmk -h' | findstr /c:"CLI wrapper for running QMK commands"
 
   publish_release:
     runs-on: ubuntu-latest
