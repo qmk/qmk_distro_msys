@@ -24,9 +24,9 @@ DefaultDirName={autopf}\{#MyAppDir}
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputDir=.build
+OutputDir=..\.build
 OutputBaseFilename={#MyAppDir}
-SetupIconFile=src\icon.ico
+SetupIconFile=icon.ico
 Compression=lzma2/max
 SolidCompression=yes
 UninstallDisplayIcon={app}\icon.ico
@@ -39,8 +39,9 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "drivers\*"; DestDir: {tmp}; Flags: deleteafterinstall
-Source: ".build\msys64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: ".\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\drivers\*"; DestDir: {tmp}; Flags: deleteafterinstall
+Source: "..\.build\msys64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Dirs]
 Name:"{app}\"; Permissions:everyone-modify
