@@ -39,8 +39,9 @@ jobs:
 
     - name: Install QMK cli
       run: |
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman --needed --noconfirm --disable-download-timeout -S pactoys-git"
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacboy sync --needed --noconfirm --disable-download-timeout base-devel: toolchain:x clang:x git: unzip: python3-pip:x avr-binutils:x avr-gcc:x avr-libc:x arm-none-eabi-binutils:x arm-none-eabi-gcc:x arm-none-eabi-newlib:x avrdude:x bootloadhid:x dfu-programmer:x dfu-util:x mdloader:x teensy-loader-cli:x"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman --needed --noconfirm -S pactoys-git"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacboy sync --needed --noconfirm base-devel: toolchain:x clang:x git: unzip: python3-pip:x avr-binutils:x avr-gcc:x avr-libc:x arm-none-eabi-binutils:x arm-none-eabi-gcc:x arm-none-eabi-newlib:x avrdude:x bootloadhid:x dfu-programmer:x mdloader:x teensy-loader-cli:x"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman  --noconfirm -U http://repo.msys2.org/mingw/i686/mingw-w64-i686-dfu-util-0.9-1-any.pkg.tar.zst"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "python3 -m pip install --no-binary qmk qmk"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "qmk"
 
