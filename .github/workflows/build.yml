@@ -80,7 +80,7 @@ jobs:
 
       - name: Run Install
         run: |
-          Start-Process ./artifacts/QMK_MSYS.exe -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART" -wait
+          Start-Process ./artifacts/QMK_MSYS.exe -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /DIR=expand:{autopf}\QMK_MSYS" -wait
 
       - name: Run QMK cli
         env:
