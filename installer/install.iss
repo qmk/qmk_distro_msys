@@ -48,7 +48,7 @@ Source: "..\.build\msys64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubd
 Name:"{app}\"; Permissions:everyone-modify
 
 [RUN]
-Filename: "{tmp}\qmk_driver_installer.exe"; WorkingDir: "{tmp}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."
+Filename: "{tmp}\qmk_driver_installer.exe"; WorkingDir: "{tmp}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."; Flags: runhidden
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\usr\bin\mintty.exe"; Parameters: "-i ""{app}\icon.ico"" -T ""{#MyAppName}"" /usr/bin/bash -l -c ""MSYSTEM=MINGW64 exec -l bash"""; IconFilename: "{app}\icon.ico"
