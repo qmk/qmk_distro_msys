@@ -32,6 +32,12 @@ jobs:
         curl -L -O ${{ steps.dotenv.outputs.msys_url }}
         tar -xvf msys2-base-x86_64-*.tar.xz --one-top-level=.build
 
+    - name: Download/Unpack ConEmu
+      shell: bash
+      run: |
+        curl -L -O https://github.com/Maximus5/ConEmu/releases/download/v21.02.06/ConEmuPack.210206.7z
+        7z x ConEmuPack.210206.7z -o.build/msys64/conemu/
+
     - name: Update MSYS
       run: |
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm"
