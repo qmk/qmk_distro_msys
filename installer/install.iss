@@ -51,5 +51,5 @@ Name:"{app}\"; Permissions:everyone-modify
 Filename: "{tmp}\qmk_driver_installer.exe"; WorkingDir: "{tmp}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."; Flags: runhidden
 
 [Icons]
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\usr\bin\mintty.exe"; Parameters: "-i ""{app}\icon.ico"" -T ""{#MyAppName}"" /usr/bin/bash -l -c ""MSYSTEM=MINGW64 exec -l bash"""; IconFilename: "{app}\icon.ico"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\usr\bin\mintty.exe"; Parameters: "-i ""{app}\icon.ico"" -T ""{#MyAppName}"" /usr/bin/bash -l -c ""MSYSTEM=MINGW64 exec -l bash"""; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-icon {app}\icon.ico -title ""{#MyAppName}"" -run {app}\usr\bin\bash.exe -l -i"; IconFilename: "{app}\icon.ico"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-icon {app}\icon.ico -title ""{#MyAppName}"" -run {app}\usr\bin\bash.exe -l -i"; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
