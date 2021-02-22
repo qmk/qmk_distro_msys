@@ -35,8 +35,8 @@ jobs:
     - name: Download/Unpack ConEmu
       shell: bash
       run: |
-        curl -L -O https://github.com/Maximus5/ConEmu/releases/download/v21.02.06/ConEmuPack.210206.7z
-        7z x ConEmuPack.210206.7z -o.build/msys64/conemu/
+        curl -L -O ${{ steps.dotenv.outputs.conemu_url }}
+        7z x ConEmuPack.*.7z -o.build/msys64/conemu/
 
     - name: Update MSYS
       run: |
