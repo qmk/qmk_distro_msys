@@ -1,6 +1,7 @@
-name: "Update latest msys base"
+name: "Update dependencies"
 
 on:
+  workflow_dispatch:
   schedule:
   - cron: "0 0 * * *"
   pull_request:
@@ -32,5 +33,5 @@ jobs:
         delete-branch: true
         author: QMK Bot <hello@qmk.fm>
         committer: QMK Bot <hello@qmk.fm>
-        commit-message: Update latest msys base
-        title: '[CI] Update latest msys base'
+        commit-message: Update latest dependencies
+        title: '[CI] Update latest dependencies'
