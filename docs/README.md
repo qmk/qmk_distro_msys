@@ -15,7 +15,7 @@ Want to get started with [QMK Firmware](https://qmk.fm) quickly? Running Windows
 
 Bundling MSYS2 + QMK CLI together, this installer package aims to give you a QMK build environment with as little effort as possible.
 
-<img :src="$withBase('/terminal.png')" alt="terminal example" style="display: block; margin: 0 auto; border: 1px solid grey;">
+<img :src="$withBase('/terminal.png')" alt="terminal example" style="display: block; margin: 0 auto;">
 
 Not using Windows? Go directly to the [Tutorial](https://docs.qmk.fm/#/newbs) to get started.
 
