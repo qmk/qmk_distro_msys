@@ -6,6 +6,7 @@ module.exports = {
     ],
     title: 'QMK MSYS',
     description: 'A Windows one-click installer for the QMK CLI',
+    theme: 'default-prefers-color-scheme',
     themeConfig: {
         nav: [
             { text: 'Discord', link: 'https://discord.gg/Uq7gcHh' },
