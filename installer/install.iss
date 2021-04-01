@@ -36,7 +36,8 @@ ArchitecturesInstallIn64BitMode=x64
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "Other tasks:"; Flags: unchecked
+Name: "installdrivers"; Description: "Install drivers"; GroupDescription: "Other tasks:"
 
 [Files]
 Source: ".\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -47,7 +48,7 @@ Source: "..\.build\msys64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubd
 Name:"{app}\"; Permissions:everyone-modify
 
 [Run]
-Filename: "{tmp}\qmk_driver_installer.exe"; WorkingDir: "{tmp}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."; Flags: runhidden
+Filename: "{tmp}\qmk_driver_installer.exe"; WorkingDir: "{tmp}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."; Tasks: installdrivers; Flags: runhidden
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-NoSingle -NoUpdate -icon {app}\icon.ico -title ""{#MyAppName}"" -run {app}\usr\bin\bash.exe -l -i -cur_console:m:"""""; IconFilename: "{app}\icon.ico"
