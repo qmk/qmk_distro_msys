@@ -28,10 +28,9 @@ jobs:
 
     - name: Deploy
       if: ${{ github.event_name != 'pull_request' }}
-      uses: JamesIves/github-pages-deploy-action@3.7.1
+      uses: JamesIves/github-pages-deploy-action@4.1.0
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BASE_BRANCH: main
-        BRANCH: gh-pages
-        FOLDER: .build/docs
-        GIT_CONFIG_EMAIL: hello@qmk.fm
+        branch: gh-pages
+        folder: .build/docs
+        git-config-name: QMK Bot
+        git-config-email: hello@qmk.fm
