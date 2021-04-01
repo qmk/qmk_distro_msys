@@ -40,7 +40,8 @@ jobs:
 
     - name: Update MSYS
       run: |
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm || true"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Su --noconfirm"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Su --noconfirm"
 
     - name: Install QMK cli

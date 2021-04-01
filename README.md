@@ -1,4 +1,4 @@
-# QMK MSYS a
+# QMK MSYS
 
 > A Windows one-click installer for the QMK CLI
 
