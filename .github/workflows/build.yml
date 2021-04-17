@@ -61,6 +61,7 @@ jobs:
         rm -rf .build/msys64/var/cache/pacman/pkg/*
         rm -f .build/msys64/*.exe
         rm -f .build/msys64/*.ico
+        rm -f .build/msys64/msys2_shell.cmd
         mkdir -p .build/msys64/dev/shm
         mkdir -p .build/msys64/dev/mqueue
         cp -rf src/* .build/msys64/
