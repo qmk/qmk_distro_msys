@@ -48,7 +48,7 @@ Note that the example below assumes that you have QMK MSYS installed to the defa
     {
       "guid": "{1ca2e875-5a87-40f8-b55c-e7ec84354a92}",
       "name": "QMK MSYS",
-      "commandline": "%SystemDrive%/QMK_MSYS/msys2_shell.cmd -defterm -no-start -mingw64",
+      "commandline": "%SystemDrive%/QMK_MSYS/shell_connector.cmd",
       "icon": "%SystemDrive%/QMK_MSYS/icon.ico"
     }
 ```
