@@ -51,9 +51,9 @@ Name:"{app}\"; Permissions:everyone-modify
 Filename: "{tmp}\qmk_driver_installer.exe"; WorkingDir: "{tmp}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."; Tasks: installdrivers; Flags: runhidden
 
 [Icons]
-Name: "{app}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-NoSingle -NoUpdate -icon {app}\icon.ico -title ""{#MyAppName}"" -run {app}\usr\bin\bash.exe -l -i -cur_console:m:"""""; IconFilename: "{app}\icon.ico"
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-NoSingle -NoUpdate -icon {app}\icon.ico -title ""{#MyAppName}"" -run {app}\usr\bin\bash.exe -l -i -cur_console:m:"""""; IconFilename: "{app}\icon.ico"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-NoSingle -NoUpdate -icon {app}\icon.ico -title ""{#MyAppName}"" -run {app}\usr\bin\bash.exe -l -i -cur_console:m:"""""; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
+Name: "{app}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-NoSingle -NoUpdate -icon ""{app}\icon.ico"" -title ""{#MyAppName}"" -run ""{app}\usr\bin\bash.exe"" -l -i -cur_console:m:"""""; IconFilename: "{app}\icon.ico"
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-NoSingle -NoUpdate -icon ""{app}\icon.ico"" -title ""{#MyAppName}"" -run ""{app}\usr\bin\bash.exe"" -l -i -cur_console:m:"""""; IconFilename: "{app}\icon.ico"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-NoSingle -NoUpdate -icon ""{app}\icon.ico"" -title ""{#MyAppName}"" -run ""{app}\usr\bin\bash.exe"" -l -i -cur_console:m:"""""; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
 
 [Code]
 
