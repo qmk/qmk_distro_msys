@@ -44,7 +44,13 @@ jobs:
       run: |
         curl -L -O https://raw.githubusercontent.com/qmk/qmk_firmware/master/util/drivers.txt
         curl -L -O https://github.com/qmk/qmk_driver_installer/releases/download/v1.01/qmk_driver_installer.exe
-  
+
+    - name: Temp
+      shell: bash
+      run: |
+        ls .build/msys64/qmk_driver_installer.exe
+        ls .build/msys64/drivers.txt
+
     - name: Update MSYS
       run: |
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm || true"
