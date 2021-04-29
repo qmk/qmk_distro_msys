@@ -40,16 +40,10 @@ jobs:
 
     - name: Download Driver Installer
       shell: bash
-      working-directory: .build/msys64/
+      working-directory: .build/driver/
       run: |
         curl -L -O https://raw.githubusercontent.com/qmk/qmk_firmware/master/util/drivers.txt
         curl -L -O https://github.com/qmk/qmk_driver_installer/releases/download/v1.01/qmk_driver_installer.exe
-
-    - name: Temp
-      shell: bash
-      run: |
-        ls .build/msys64/qmk_driver_installer.exe
-        ls .build/msys64/drivers.txt
 
     - name: Update MSYS
       run: |
