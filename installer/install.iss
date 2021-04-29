@@ -41,14 +41,13 @@ Name: "installdrivers"; Description: "Install drivers"; GroupDescription: "Other
 
 [Files]
 Source: ".\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "..\drivers\*"; DestDir: {tmp}; Flags: deleteafterinstall
 Source: "..\.build\msys64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Dirs]
 Name:"{app}\"; Permissions:everyone-modify
 
 [Run]
-Filename: "{tmp}\qmk_driver_installer.exe"; WorkingDir: "{tmp}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."; Tasks: installdrivers; Flags: runhidden
+Filename: "{app}\qmk_driver_installer.exe"; WorkingDir: "{app}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."; Tasks: installdrivers; Flags: runhidden
 
 [Icons]
 Name: "{app}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-NoSingle -NoUpdate -icon ""{app}\icon.ico"" -title ""{#MyAppName}"" -run ""{app}\usr\bin\bash.exe"" -l -i -cur_console:m:"""""; IconFilename: "{app}\icon.ico"

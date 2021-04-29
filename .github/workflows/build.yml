@@ -38,6 +38,12 @@ jobs:
         curl -L -O ${{ steps.dotenv.outputs.conemu_url }}
         7z x ConEmuPack.*.7z -o.build/msys64/conemu/
 
+    - name: Download/Unpack ConEmu
+      shell: bash
+      run: |
+        curl -L --output-dir .build -O https://raw.githubusercontent.com/qmk/qmk_firmware/master/util/drivers.txt
+        curl -L --output-dir .build -O https://github.com/qmk/qmk_driver_installer/releases/download/v1.01/qmk_driver_installer.exe
+  
     - name: Update MSYS
       run: |
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm || true"
