@@ -40,10 +40,10 @@ jobs:
 
     - name: Download Driver Installer
       shell: bash
-      working-directory: .build/driver/
       run: |
-        curl -L -O https://raw.githubusercontent.com/qmk/qmk_firmware/master/util/drivers.txt
-        curl -L -O https://github.com/qmk/qmk_driver_installer/releases/download/v1.01/qmk_driver_installer.exe
+        mkdir .build/drivers/
+        curl -L --output-dir .build/drivers/ -O https://raw.githubusercontent.com/qmk/qmk_firmware/master/util/drivers.txt
+        curl -L --output-dir .build/drivers/ -O https://github.com/qmk/qmk_driver_installer/releases/download/v1.01/qmk_driver_installer.exe
 
     - name: Update MSYS
       run: |
