@@ -38,7 +38,7 @@ jobs:
         curl -L -O ${{ steps.dotenv.outputs.conemu_url }}
         7z x ConEmuPack.*.7z -o.build/msys64/conemu/
 
-    - name: Download/Unpack ConEmu
+    - name: Download Driver Installer
       shell: bash
       run: |
         curl -L --output-dir .build -O https://raw.githubusercontent.com/qmk/qmk_firmware/master/util/drivers.txt
