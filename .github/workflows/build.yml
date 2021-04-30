@@ -109,35 +109,25 @@ jobs:
   publish_release:
     runs-on: ubuntu-latest
 
-    needs: [build, test]
+    needs: [test]
 
     if: github.event.release.tag_name
 
     steps:
       - uses: actions/download-artifact@v2
 
-      - uses: actions/upload-release-asset@v1
+      - uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./artifacts/QMK_MSYS.exe
-          asset_name: QMK_MSYS.exe
-          asset_content_type: application/octet-stream
-
-      - uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./artifacts/QMK_MSYS.exe.sha256
-          asset_name: QMK_MSYS.exe.sha256
-          asset_content_type: application/octet-stream
+          name: ${{ github.event.release.name }}
+          files: |
+            ./artifacts/QMK_MSYS.*
 
   publish_beta:
     runs-on: ubuntu-latest
 
-    needs: [build, test]
+    needs: [test]
 
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 
