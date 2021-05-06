@@ -8,7 +8,8 @@ maybe_qmk_welcome () {
   echo "  * Documentation:    https://docs.qmk.fm"
   echo "  * Support:          https://discord.gg/Uq7gcHh"
 
-  if [ "$(qmk config user.hide_welcome | grep -c '=True')" == "0" ]; then
+  timeout 3 qmk config user.hide_welcome | grep 'user.hide_welcome=True' &> /dev/null
+  if [ "$?" != "0" ]; then
     echo ""
     echo "If you have not already done so,"
     echo -e "  run ${YELLOW}qmk setup${NC} to get started."
