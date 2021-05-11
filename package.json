@@ -5,7 +5,7 @@
   "author": "zvecr <git@zvecr.com>",
   "license": "GPL-3.0",
   "devDependencies": {
-    "vuepress": "^1.7.1",
+    "vuepress": "^1.8.2",
     "vuepress-plugin-medium-zoom": "^1.1.9"
   },
   "scripts": {
