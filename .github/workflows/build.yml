@@ -61,6 +61,7 @@ jobs:
     - name: Patch Up MSYS
       shell: 'bash {0}'
       run: |
+        editbin /stack:134217728 .build/msys64/usr/bin/make.exe
         rm -rf .build/msys64/home/*
         rm -rf .build/msys64/dev/*
         rm -rf .build/msys64/etc/mtab
