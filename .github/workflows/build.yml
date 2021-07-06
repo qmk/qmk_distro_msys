@@ -21,6 +21,9 @@ jobs:
       VERSION: ${{github.event.release.tag_name}}
 
     steps:
+
+    - uses: microsoft/setup-msbuild@v1.0.2
+
     - uses: actions/checkout@v2
 
     - uses: falti/dotenv-action@v0.2.5
