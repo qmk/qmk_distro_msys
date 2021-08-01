@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: falti/dotenv-action@v0.2.5
+    - uses: falti/dotenv-action@v0.2.6
       id: dotenv
 
     - name: Download/Unpack MSYS
