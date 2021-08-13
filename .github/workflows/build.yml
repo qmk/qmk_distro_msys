@@ -55,7 +55,7 @@ jobs:
       run: |
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman --needed --noconfirm --disable-download-timeout -S pactoys-git"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacboy sync --needed --noconfirm --disable-download-timeout base-devel: toolchain:x clang:x git: unzip: python3-pip:x python3-setuptools:x avr-binutils:x avr-gcc:x avr-libc:x arm-none-eabi-binutils:x arm-none-eabi-gcc:x arm-none-eabi-newlib:x avrdude:x bootloadhid:x dfu-programmer:x dfu-util:x mdloader:x teensy-loader-cli:x hidapi:x"
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "python3 -m pip install --src /tmp -e git+https://github.com/qmk/qmk_cli@${{ steps.dotenv.outputs.qmk_cli_ver }}#egg=qmk"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "/pip_bodge.cmd install qmk==${{ steps.dotenv.outputs.qmk_cli_ver }}"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "qmk"
 
     - name: Patch Up MSYS
