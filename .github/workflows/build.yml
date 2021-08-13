@@ -50,7 +50,7 @@ jobs:
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm || true"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Su --noconfirm"
-        cp -f src/pip_bodge.cmd .build/msys64/usr/bin/
+        cp src/pip_bodge.cmd .build/msys64/usr/bin/
 
     - name: Install QMK cli
       run: |
