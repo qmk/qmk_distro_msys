@@ -43,11 +43,13 @@ Name: "installdrivers"; Description: "Install drivers"; GroupDescription: "Other
 Source: ".\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\.build\msys64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\.build\drivers\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\.build\vcredist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Dirs]
 Name:"{app}\"; Permissions:everyone-modify
 
 [Run]
+Filename: "{app}\vcredist_x64.exe"; WorkingDir: "{app}"; Parameters: " /install /quiet /norestart"; StatusMsg: "Installing Visual C++ Redistributable..."; Flags: runhidden
 Filename: "{app}\qmk_driver_installer.exe"; WorkingDir: "{app}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."; Tasks: installdrivers; Flags: runhidden
 
 [Icons]
