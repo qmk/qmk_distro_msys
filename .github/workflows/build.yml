@@ -69,7 +69,6 @@ jobs:
     - name: Patch Up MSYS
       shell: 'bash {0}'
       run: |
-        "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\SDK\ScopeCppSDK\vc15\VC\bin\editbin.exe" /stack:134217728 .build/msys64/usr/bin/make.exe
         rm -rf .build/msys64/home/*
         rm -rf .build/msys64/dev/*
         rm -rf .build/msys64/etc/mtab
