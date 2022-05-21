@@ -28,3 +28,6 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # Force UTF8 to avoid cp1252 issues
 export PYTHONUTF8=1
+
+# Stop gmake from being picked up on the path
+export MAKE=make
