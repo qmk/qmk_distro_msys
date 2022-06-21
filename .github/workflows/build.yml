@@ -80,6 +80,10 @@ jobs:
         echo "VERSION_ID=$GITHUB_SHA" >> .build/msys64/etc/qmk-release
         echo "VERSION=${VERSION:-2.0.0}" >> .build/msys64/etc/qmk-release
 
+    - name: Test QMK cli version
+      run: |
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "qmk --version | grep -F ${{ steps.dotenv.outputs.qmk_cli_ver }}"
+
     - name: Create Installer
       shell: 'bash {0}'
       run: |
