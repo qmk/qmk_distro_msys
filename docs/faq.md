@@ -21,6 +21,10 @@ Periodic updates will be available to cover both major MSYS2, and QMK CLI update
 
 Interim updates have to be performed manually. This can done within the terminal by running the following commands:
 
+
+<details>
+  <summary>Here be dragons</summary>
+
 ```console
 # Update the package database and core system packages with:
 pacman -Syu  
@@ -28,9 +32,11 @@ pacman -Syu
 # If needed, close QMK MSYS, run it again from Start menu. Update the rest with:
 pacman -Su
 
-# update QMK CLI
+# Optional - update QMK CLI if a "native" package was not released to MSYS
 python3 -m pip install qmk --upgrade
 ```
+
+</details>
 
 ## How do I configure Windows Terminal?
 
