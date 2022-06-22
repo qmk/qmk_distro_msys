@@ -63,6 +63,10 @@ jobs:
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacboy sync --needed --noconfirm --disable-download-timeout base-devel: toolchain:x clang:x git: python-qmk:x hidapi:x avr-binutils:x avr-gcc:x avr-libc:x arm-none-eabi-binutils:x arm-none-eabi-gcc:x arm-none-eabi-newlib:x avrdude:x bootloadhid:x dfu-programmer:x dfu-util:x hid-bootloader-cli:x mdloader:x teensy-loader-cli:x wb32-dfu-updater:x"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "qmk"
 
+    - name: Test QMK cli version
+      run: |
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "qmk --version | grep -F ${{ steps.dotenv.outputs.qmk_cli_ver }}"
+
     - name: Patch Up MSYS
       shell: 'bash {0}'
       run: |
@@ -79,10 +83,6 @@ jobs:
         cp -rf src/* .build/msys64/
         echo "VERSION_ID=$GITHUB_SHA" >> .build/msys64/etc/qmk-release
         echo "VERSION=${VERSION:-2.0.0}" >> .build/msys64/etc/qmk-release
-
-    - name: Test QMK cli version
-      run: |
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "qmk --version | grep -F ${{ steps.dotenv.outputs.qmk_cli_ver }}"
 
     - name: Create Installer
       shell: 'bash {0}'
