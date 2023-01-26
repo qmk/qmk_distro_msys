@@ -20,6 +20,5 @@ module.exports = {
             '/faq',
             '/dev',
         ],
-    },
-    plugins: ['vuepress-plugin-medium-zoom'],
+    }
 };
