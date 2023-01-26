@@ -3,7 +3,7 @@
 > A Windows one-click installer for the QMK CLI
 
 [![Latest Release](https://img.shields.io/github/v/release/qmk/qmk_distro_msys?color=3D87CE&label=Latest&sort=semver&style=for-the-badge)](https://github.com/qmk/qmk_distro_msys/releases/latest)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/qmk/qmk_distro_msys/CI?logo=github&style=for-the-badge)](https://github.com/qmk/qmk_distro_msys/actions?query=workflow%3ACI+branch%3Amain)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/qmk/qmk_distro_msys/build.yml?logo=github&style=for-the-badge)](https://github.com/qmk/qmk_distro_msys/actions?query=workflow%3ACI+branch%3Amain)
 [![Discord](https://img.shields.io/discord/440868230475677696.svg?logo=discord&logoColor=white&color=7289DA&style=for-the-badge)](https://discord.gg/Uq7gcHh)
 
 Want to get started with [QMK Firmware](https://qmk.fm) quickly? Running Windows 8/10 and want to avoid installation headaches? Look no further!
