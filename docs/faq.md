@@ -31,9 +31,6 @@ pacman -Syu
 
 # If needed, close QMK MSYS, run it again from Start menu. Update the rest with:
 pacman -Su
-
-# Optional - update QMK CLI if a "native" package was not released to MSYS
-python3 -m pip install qmk --upgrade
 ```
 
 </details>
