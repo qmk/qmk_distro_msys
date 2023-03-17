@@ -45,12 +45,6 @@ jobs:
         curl -L --output-dir .build/drivers/ -O https://raw.githubusercontent.com/qmk/qmk_firmware/master/util/drivers.txt
         curl -L --output-dir .build/drivers/ -O https://github.com/qmk/qmk_driver_installer/releases/download/v1.01/qmk_driver_installer.exe
 
-    - name: Download Visual C++ Redistributable
-      shell: bash
-      run: |
-        mkdir .build/vcredist/
-        curl -L --output-dir .build/vcredist/ -O http://download.microsoft.com/download/c/c/2/cc2df5f8-4454-44b4-802d-5ea68d086676/vcredist_x64.exe
-
     - name: Update MSYS
       run: |
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm || true"
