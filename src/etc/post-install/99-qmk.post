@@ -8,13 +8,22 @@ maybe_qmk_welcome () {
   echo "  * Documentation:    https://docs.qmk.fm"
   echo "  * Support:          https://discord.gg/Uq7gcHh"
 
+  timeout 3 qmk config user.ignore_update_check | grep 'user.ignore_update_check=True' &> /dev/null
+  if [ "$?" != "0" ]; then
+    local LATEST_CLI=$(timeout 3 wget -qO- https://api.github.com/repos/qmk/qmk_cli/tags | jq '.[0].name' -r)
+    echo $LATEST_CLI | grep -q $(qmk --version)
+    if [ "$?" != "0" ]; then
+      echo -e "  * Updates:          QMK CLI ${RED}${LATEST_CLI}${NC} available!"
+    fi
+  fi
+
   timeout 3 qmk config user.hide_welcome | grep 'user.hide_welcome=True' &> /dev/null
   if [ "$?" != "0" ]; then
     echo ""
     echo "If you have not already done so,"
     echo -e "  run ${YELLOW}qmk setup${NC} to get started."
-	echo -e "  run ${GREEN}qmk compile -kb <keyboard> -km default${NC} to start building."
-	echo -e "  run ${RED}qmk config user.hide_welcome=True${NC} to hide this message."
+    echo -e "  run ${GREEN}qmk compile -kb <keyboard> -km default${NC} to start building."
+    echo -e "  run ${RED}qmk config user.hide_welcome=True${NC} to hide this message."
   fi
 }
 
