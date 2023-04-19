@@ -47,12 +47,10 @@ Source: "..\.build\drivers\*"; DestDir: "{app}"; Flags: ignoreversion recursesub
 
 [Dirs]
 Name: "{app}"; Permissions:everyone-modify
-Name: "{commonappdata}\Microsoft\Windows Terminal\Fragments\QMK"; Tasks: windowsterminal; Check: IsAdminLoggedOn
-Name: "{localappdata}\Microsoft\Windows Terminal\Fragments\QMK"; Tasks: windowsterminal; Check: not IsAdminLoggedOn
+Name: "{commonappdata}\Microsoft\Windows Terminal\Fragments\QMK"; Tasks: windowsterminal
 
 [UninstallDelete]
 Type: files; Name: "{commonappdata}\Microsoft\Windows Terminal\Fragments\QMK\qmk-msys.json"
-Type: files; Name: "{localappdata}\Microsoft\Windows Terminal\Fragments\QMK\qmk-msys.json"
 
 [Run]
 Filename: "{app}\qmk_driver_installer.exe"; WorkingDir: "{app}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."; Tasks: installdrivers; Flags: runhidden
@@ -67,13 +65,10 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Param
 { ///////////////////////////////////////////////////////////////////// }
 procedure InstallWindowsTerminalFragment;
 var
-  Res:Longint;
   AppPath, JSONDirectory, JSONPath:String;
 begin
-  if IsAdminInstallMode() then
-    JSONDirectory := ExpandConstant('{commonappdata}\Microsoft\Windows Terminal\Fragments\QMK')
-  else
-    JSONDirectory := ExpandConstant('{localappdata}\Microsoft\Windows Terminal\Fragments\QMK');
+  JSONDirectory := ExpandConstant('{commonappdata}\Microsoft\Windows Terminal\Fragments\QMK');
+
   if not ForceDirectories(JSONDirectory) then begin
     Log('Line {#__LINE__}: Unable to install Windows Terminal Fragment to ' + JSONDirectory);
     Exit;
@@ -157,7 +152,7 @@ begin
     end;
   end;
 
-  if IsTaskSelected('windowsterminal') then begin
+  if WizardIsTaskSelected('windowsterminal') then begin
     WizardForm.StatusLabel.Caption:='Adding Windows Terminal profile';
     InstallWindowsTerminalFragment();
   end;
