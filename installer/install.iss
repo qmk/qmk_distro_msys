@@ -77,7 +77,7 @@ begin
   else
     JSONDirectory := ExpandConstant('{localappdata}\Microsoft\Windows Terminal\Fragments\QMK');
   if not ForceDirectories(JSONDirectory) then begin
-    LogError('Line {#__LINE__}: Unable to install Windows Terminal Fragment to ' + JSONDirectory);
+    Log('Line {#__LINE__}: Unable to install Windows Terminal Fragment to ' + JSONDirectory);
     Exit;
   end;
 
@@ -97,7 +97,7 @@ begin
     '    }' +
     '  ]' +
     '}', False) then begin
-    LogError('Line {#__LINE__}: Unable to install Windows Terminal Fragment to ' + JSONPath)
+    Log('Line {#__LINE__}: Unable to install Windows Terminal Fragment to ' + JSONPath)
   end;
 end;
 
