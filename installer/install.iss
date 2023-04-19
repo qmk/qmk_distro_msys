@@ -32,15 +32,13 @@ SolidCompression=yes
 UninstallDisplayIcon={app}\icon.ico
 ArchitecturesInstallIn64BitMode=x64
 
-[Components]
-Name: windowsterminal; Description: "Add QMK MSYS profile to Windows Terminal"; MinVersion: 10.0.19041
-
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "Other tasks:"; Flags: unchecked
 Name: "installdrivers"; Description: "Install drivers"; GroupDescription: "Other tasks:"
+Name: "windowsterminal"; Description: "Add QMK MSYS profile to Windows Terminal"; GroupDescription: "Other tasks:"; Flags: unchecked; MinVersion: 10.0.19041
 
 [Files]
 Source: ".\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -49,8 +47,8 @@ Source: "..\.build\drivers\*"; DestDir: "{app}"; Flags: ignoreversion recursesub
 
 [Dirs]
 Name: "{app}"; Permissions:everyone-modify
-Name: "{commonappdata}\Microsoft\Windows Terminal\Fragments\QMK"; Components: windowsterminal; Check: IsAdminLoggedOn
-Name: "{localappdata}\Microsoft\Windows Terminal\Fragments\QMK"; Components: windowsterminal; Check: not IsAdminLoggedOn
+Name: "{commonappdata}\Microsoft\Windows Terminal\Fragments\QMK"; Tasks: windowsterminal; Check: IsAdminLoggedOn
+Name: "{localappdata}\Microsoft\Windows Terminal\Fragments\QMK"; Tasks: windowsterminal; Check: not IsAdminLoggedOn
 
 [UninstallDelete]
 Type: files; Name: "{commonappdata}\Microsoft\Windows Terminal\Fragments\QMK\qmk-msys.json"
@@ -159,7 +157,7 @@ begin
     end;
   end;
 
-  if IsComponentSelected('windowsterminal') then begin
+  if IsTaskSelected('windowsterminal') then begin
     WizardForm.StatusLabel.Caption:='Adding Windows Terminal profile';
     InstallWindowsTerminalFragment();
   end;
