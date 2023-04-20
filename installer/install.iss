@@ -84,9 +84,8 @@ begin
     '    {' +
     '      "guid": "{db1d8c35-5f1f-5c6e-bf9b-ade86c5c16c4}",' +
     '      "name": "QMK MSYS",' +
-    '      "commandline": "' + AppPath + '/usr/bin/env.exe MSYSTEM=MINGW64 /usr/bin/bash.exe -i -l",' +
-    '      "icon": "' + AppPath + '/icon.ico",' +
-    '      "startingDirectory": "%USERPROFILE%"' +
+    '      "commandline": "' + AppPath + '/shell_connector.cmd",' +
+    '      "icon": "' + AppPath + '/icon.ico"' +
     '    }' +
     '  ]' +
     '}', False) then begin
