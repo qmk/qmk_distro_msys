@@ -39,7 +39,7 @@ pacman -Su
 
 [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701), which supports various shells, can also be extended to support QMK MSYS. Just tick the "Add QMK MSYS profile to Windows Terminal" checkbox during installation.
 
-If you would prefer to do this manually, select `Settings` in the tab dropdown menu, scroll down to the bottom of the profile list to add a new profile, then select "New empty profile":
+If you would prefer to do this manually, create a new empty profile in Windows Terminal settings:
 
  - **Name**: `QMK MSYS`
  - **Command line**: `%SystemDrive%/QMK_MSYS/shell_connector.cmd`
