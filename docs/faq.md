@@ -37,24 +37,15 @@ pacman -Su
 
 ## How do I configure Windows Terminal?
 
-[Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab), which supports various shells, can also be extended to support QMK MSYS.
+[Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701), which supports various shells, can also be extended to support QMK MSYS. Just tick the "Add QMK MSYS profile to Windows Terminal" checkbox during installation.
 
-In the tab dropdown menu, select `Settings` which opens a code editor showing a JSON configuration file. Insert the example profiles shown below under the profiles key.
+If you would prefer to do this manually, select `Settings` in the tab dropdown menu, scroll down to the bottom of the profile list to add a new profile, then select "New empty profile":
 
-Note that the example below assumes that you have QMK MSYS installed to the default location.
+ - **Name**: `QMK MSYS`
+ - **Command line**: `%SystemDrive%/QMK_MSYS/shell_connector.cmd`
+ - **Icon**: `%SystemDrive%/QMK_MSYS/icon.ico`
 
-```json
-"profiles": {
-  "list":
-  [
-    // ...
-    {
-      "guid": "{1ca2e875-5a87-40f8-b55c-e7ec84354a92}",
-      "name": "QMK MSYS",
-      "commandline": "%SystemDrive%/QMK_MSYS/shell_connector.cmd",
-      "icon": "%SystemDrive%/QMK_MSYS/icon.ico"
-    }
-```
+Note that this example assumes that you have QMK MSYS installed to the default location (generally `C:\QMK_MSYS`).
 
 ## More Coming Soon...
 
