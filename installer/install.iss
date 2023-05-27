@@ -38,6 +38,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "Other tasks:"; Flags: unchecked
 Name: "installdrivers"; Description: "Install drivers"; GroupDescription: "Other tasks:"
+Name: "windowsterminal"; Description: "Add QMK MSYS profile to Windows Terminal"; GroupDescription: "Other tasks:"; Flags: unchecked; MinVersion: 10.0.19041
 
 [Files]
 Source: ".\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -45,7 +46,11 @@ Source: "..\.build\msys64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubd
 Source: "..\.build\drivers\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Dirs]
-Name:"{app}\"; Permissions:everyone-modify
+Name: "{app}"; Permissions:everyone-modify
+Name: "{commonappdata}\Microsoft\Windows Terminal\Fragments\QMK"; Tasks: windowsterminal
+
+[UninstallDelete]
+Type: files; Name: "{commonappdata}\Microsoft\Windows Terminal\Fragments\QMK\qmk-msys.json"
 
 [Run]
 Filename: "{app}\qmk_driver_installer.exe"; WorkingDir: "{app}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."; Tasks: installdrivers; Flags: runhidden
@@ -56,6 +61,37 @@ Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Para
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-NoSingle -NoUpdate -icon ""{app}\icon.ico"" -title ""{#MyAppName}"" -run ""{app}\usr\bin\bash.exe"" -l -i -cur_console:m:"""""; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
 
 [Code]
+
+{ ///////////////////////////////////////////////////////////////////// }
+procedure InstallWindowsTerminalFragment;
+var
+  AppPath, JSONDirectory, JSONPath:String;
+begin
+  JSONDirectory := ExpandConstant('{commonappdata}\Microsoft\Windows Terminal\Fragments\QMK');
+
+  if not ForceDirectories(JSONDirectory) then begin
+    Log('Line {#__LINE__}: Unable to install Windows Terminal Fragment to ' + JSONDirectory);
+    Exit;
+  end;
+
+  JSONPath := JSONDirectory + '\qmk-msys.json';
+  AppPath := ExpandConstant('{app}');
+  StringChangeEx(AppPath, '\', '/', True)
+
+  if not SaveStringToFile(JSONPath,
+    '{' +
+    '  "profiles": [' +
+    '    {' +
+    '      "guid": "{db1d8c35-5f1f-5c6e-bf9b-ade86c5c16c4}",' +
+    '      "name": "QMK MSYS",' +
+    '      "commandline": "' + AppPath + '/shell_connector.cmd",' +
+    '      "icon": "' + AppPath + '/icon.ico"' +
+    '    }' +
+    '  ]' +
+    '}', False) then begin
+    Log('Line {#__LINE__}: Unable to install Windows Terminal Fragment to ' + JSONPath)
+  end;
+end;
 
 { ///////////////////////////////////////////////////////////////////// }
 function GetUninstallString(): String;
@@ -113,5 +149,10 @@ begin
     begin
       UnInstallOldVersion();
     end;
+  end;
+
+  if WizardIsTaskSelected('windowsterminal') then begin
+    WizardForm.StatusLabel.Caption:='Adding Windows Terminal profile';
+    InstallWindowsTerminalFragment();
   end;
 end;
