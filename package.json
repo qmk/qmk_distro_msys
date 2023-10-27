@@ -5,7 +5,7 @@
   "author": "zvecr <git@zvecr.com>",
   "license": "GPL-3.0",
   "devDependencies": {
-    "vuepress": "^1.9.8"
+    "vuepress": "^1.9.10"
   },
   "scripts": {
     "serve": "vuepress dev docs",
