@@ -10,7 +10,7 @@ Want to get started with [QMK Firmware](https://qmk.fm) quickly? Running Windows
 
 Bundling MSYS2 + QMK CLI together, this installer package aims to give you a QMK build environment with as little effort as possible.
 
-![terminal example](./docs/.vuepress/public/terminal.png)
+![terminal example](./docs/public/terminal.png)
 
 ## Documentation
 

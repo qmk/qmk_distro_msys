@@ -16,7 +16,7 @@ Otherwise [raise an issue](https://github.com/qmk/qmk_distro_msys/issues), with 
 
 Want to improve the documentation?
 
-Powered by vuepress, and hosted on GitHub Pages, you can request changes by making a fork and pull request.
+Powered by vitepress, and hosted on GitHub Pages, you can request changes by making a fork and pull request.
 
 ### Previewing the Documentation
 

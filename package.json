@@ -5,13 +5,10 @@
   "author": "zvecr <git@zvecr.com>",
   "license": "GPL-3.0",
   "devDependencies": {
-    "vuepress": "^1.9.10"
+    "vitepress": "^1.2.0"
   },
   "scripts": {
-    "serve": "vuepress dev docs",
-    "build": "vuepress build docs"
-  },
-  "dependencies": {
-    "vuepress-theme-default-prefers-color-scheme": "^2.0.0"
+    "serve": "vitepress dev  --host 0.0.0.0 docs",
+    "build": "vitepress build docs"
   }
 }

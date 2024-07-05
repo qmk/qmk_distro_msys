@@ -1,0 +1,21 @@
+:root {
+    --vp-button-sponsor-border: transparent;
+    --vp-button-sponsor-text: var(--vp-c-white);
+    --vp-button-sponsor-bg: var(--vp-c-yellow-3);
+    --vp-button-sponsor-hover-border: transparent;
+    --vp-button-sponsor-hover-text: var(--vp-c-white);
+    --vp-button-sponsor-hover-bg: var(--vp-c-yellow-2);
+    --vp-button-sponsor-active-border: transparent;
+    --vp-button-sponsor-active-text: var(--vp-c-white);
+    --vp-button-sponsor-active-bg: var(--vp-c-yellow-1);
+
+    --vp-nav-logo-height: 32px;
+
+    --vp-layout-max-width: calc(98% + 64px);
+
+    --vp-sidebar-width: 300px;
+}
+
+.VPDoc.has-aside .content-container {
+    max-width: unset !important;
+}
