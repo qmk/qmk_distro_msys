@@ -50,5 +50,5 @@ Note that this example assumes that you have QMK MSYS installed to the default l
 ## More Coming Soon...
 
 ::: tip Need help with something?
-The best place to get quick support is going to be on our [Discord](https://discord.gg/Uq7gcHh). There is usually somebody online, and there are a bunch of very helpful people there.
+The best place to get quick support is going to be on our [Discord](https://discord.gg/qmk). There is usually somebody online, and there are a bunch of very helpful people there.
 :::

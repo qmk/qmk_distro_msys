@@ -6,7 +6,7 @@ maybe_qmk_welcome () {
 
   echo "Welcome to QMK MSYS!"
   echo "  * Documentation:    https://docs.qmk.fm"
-  echo "  * Support:          https://discord.gg/Uq7gcHh"
+  echo "  * Support:          https://discord.gg/qmk"
 
   timeout 3 qmk config user.ignore_update_check | grep 'user.ignore_update_check=True' &> /dev/null
   if [ "$?" != "0" ]; then

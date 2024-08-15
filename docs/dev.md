@@ -8,7 +8,7 @@ Third-party contributions help us grow and improve QMK. We want to make the pull
 
 Found something that is broken or could be improved?
 
-The best place to get quick support is going to be on our [Discord](https://discord.gg/Uq7gcHh). There is usually somebody online, and there are a bunch of very helpful people there.
+The best place to get quick support is going to be on our [Discord](https://discord.gg/qmk). There is usually somebody online, and there are a bunch of very helpful people there.
 
 Otherwise [raise an issue](https://github.com/qmk/qmk_distro_msys/issues), with any additional details you can provide.
 
