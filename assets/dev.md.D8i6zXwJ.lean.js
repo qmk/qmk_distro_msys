@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,a1 as n}from"./chunks/framework.WaONjGTI.js";const g=JSON.parse('{"title":"Contributing","description":"","frontmatter":{},"headers":[],"relativePath":"dev.md","filePath":"dev.md"}'),o={name:"dev.md"},i=n("",13),s=[i];function r(h,c,d,l,p,u){return a(),t("div",null,s)}const b=e(o,[["render",r]]);export{g as __pageData,b as default};
