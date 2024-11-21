@@ -8,10 +8,10 @@ export default defineConfig({
     title: 'QMK MSYS',
     description: 'A Windows one-click installer for the QMK CLI',
 
-    head: [['link', { rel: 'icon', href: '/logo.png' }]],
+    head: [['link', { rel: 'icon', href: '/logo.svg' }]],
 
     themeConfig: {
-        logo: '/logo.png',
+        logo: '/logo.svg',
         sidebar: [
             { text: 'Getting Started', link: '/guide' },
             { text: 'Frequently Asked Questions', link: '/faq' },

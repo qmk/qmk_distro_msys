@@ -4,7 +4,7 @@ hero:
   name: QMK MSYS
   tagline: A Windows one-click installer for the QMK CLI
   image:
-    src: /logo.png
+    src: /logo.svg
   actions:
     - theme: brand
       text: Get Started →
