@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  workflow_dispatch:
   push:
     branches:
     - main
@@ -86,7 +87,7 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: artifacts
+        name: installer
         path: .build/QMK_MSYS.*
         include-hidden-files: true
 
@@ -96,11 +97,13 @@ jobs:
     needs: [build]
 
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
+        with:
+          name: installer
 
       - name: Run Install
         run: |
-          Start-Process ./artifacts/QMK_MSYS.exe -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /DIR=expand:{autopf}\QMK_MSYS" -wait
+          Start-Process QMK_MSYS.exe -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /DIR=expand:{autopf}\QMK_MSYS" -wait
 
       - name: Run QMK cli
         env:
@@ -117,7 +120,10 @@ jobs:
     if: github.event.release.tag_name
 
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
+        with:
+          name: installer
+          path: .build
 
       - uses: softprops/action-gh-release@v2
         env:
@@ -125,7 +131,7 @@ jobs:
         with:
           name: ${{ github.event.release.name }}
           files: |
-            ./artifacts/QMK_MSYS.*
+            .build/*
 
   publish_beta:
     runs-on: ubuntu-latest
@@ -135,7 +141,10 @@ jobs:
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
+        with:
+          name: installer
+          path: .build
 
       - uses: marvinpinto/action-automatic-releases@latest
         with:
@@ -144,4 +153,4 @@ jobs:
           prerelease: true
           title: "Latest Beta"
           files: |
-            ./artifacts/QMK_MSYS.*
+            .build/*
