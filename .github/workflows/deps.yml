@@ -15,7 +15,7 @@ jobs:
     - name: Update to latest
       run: |
         sed -i 's^https://github.com/msys2/msys2-installer/releases/.*.tar.xz^'$(curl -L --silent "https://api.github.com/repos/msys2/msys2-installer/releases" | jq -r '[.[] | select(.tag_name | contains("nightly") | not)][0] | .assets[] | select(.content_type == "application/x-xz") | .browser_download_url')'^g' .env
-        sed -i 's^https://github.com/Maximus5/ConEmu/releases/.*.7z^'$(curl -L --silent "https://api.github.com/repos/Maximus5/ConEmu/releases/latest" | jq -r '.assets[] | select(.content_type == "application/octet-stream") | .browser_download_url')'^g' .env
+        sed -i 's^https://github.com/ConEmu/ConEmu/releases/.*.7z^'$(curl -L --silent "https://api.github.com/repos/ConEmu/ConEmu/releases/latest" | jq -r '.assets[] | select(.content_type == "application/octet-stream") | .browser_download_url')'^g' .env
         sed -i 's^QMK_CLI_VER=.*^QMK_CLI_VER="'$(curl --silent "https://api.github.com/repos/qmk/qmk_cli/tags" | jq -r '.[0].name')'"^g' .env
 
     - name: Become QMK Bot
