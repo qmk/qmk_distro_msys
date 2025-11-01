@@ -85,7 +85,7 @@ jobs:
         iscc installer/install.iss //DMyAppVersion=${VERSION:-2.0.0}
         sha256sum .build/QMK_MSYS.exe > .build/QMK_MSYS.exe.sha256
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v5
       with:
         name: installer
         path: .build/QMK_MSYS.*
