@@ -22,9 +22,9 @@ jobs:
       VERSION: ${{github.event.release.tag_name}}
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
-    - uses: falti/dotenv-action@v1.1.4
+    - uses: falti/dotenv-action@v1.1.5
       id: dotenv
 
     - name: Download/Unpack MSYS
@@ -54,9 +54,7 @@ jobs:
 
     - name: Install QMK cli
       run: |
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman --needed --noconfirm --disable-download-timeout -S pactoys"
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacboy sync --needed --noconfirm --disable-download-timeout base-devel: toolchain:x clang:x git: jq:x python-appdirs:x python-qmk:x hidapi:x avr-binutils:x avr-gcc:x avr-libc:x arm-none-eabi-binutils:x arm-none-eabi-gcc:x arm-none-eabi-newlib:x avrdude:x bootloadhid:x dfu-programmer:x dfu-util:x hid-bootloader-cli:x mdloader:x teensy-loader-cli:x wb32-dfu-updater:x"
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "qmk"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "curl -fsSL https://install.qmk.fm | sh"
 
     - name: Test QMK cli version
       run: |
