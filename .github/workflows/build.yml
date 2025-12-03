@@ -59,7 +59,7 @@ jobs:
 
     - name: Install QMK cli
       run: |
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "curl -fsSL https://install.qmk.fm | sh"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "curl -fsSL https://install.qmk.fm | sh -- --confirm --skip-windows-drivers"
 
     - name: Test QMK cli version
       run: |
