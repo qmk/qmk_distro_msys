@@ -52,6 +52,11 @@ jobs:
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Su --noconfirm"
 
+    - name: Install Additional Tools
+      run: |
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman --needed --noconfirm --disable-download-timeout -S pactoys"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacboy sync --needed --noconfirm --disable-download-timeout base-devel: toolchain:x clang:x tree: git: jq:x ripgrep:x"
+
     - name: Install QMK cli
       run: |
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "curl -fsSL https://install.qmk.fm | sh"
