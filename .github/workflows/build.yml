@@ -61,7 +61,6 @@ jobs:
       run: |
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "mkdir -p /opt/uv/bin"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "export UV_PYTHON_PREFERENCE=only-managed && export UV_PYTHON_INSTALL_DIR=/opt/uv/bin && curl -fsSL https://install.qmk.fm | sh -s -- --confirm --skip-windows-drivers"
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "ls /opt/uv/bin/"
 
     - name: Test QMK cli version
       run: |
