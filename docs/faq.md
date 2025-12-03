@@ -35,7 +35,7 @@ pacman -Su
 # Rerun bootstrap
 export UV_PYTHON_PREFERENCE=only-managed
 export UV_PYTHON_INSTALL_DIR=/opt/uv/bin
-curl -fsSL https://install.qmk.fm | sh -s -- --confirm --skip-windows-drivers
+curl -fsSL https://install.qmk.fm | sh -s -- --confirm --skip-qmk-cli --skip-windows-drivers
 ```
 
 </details>
