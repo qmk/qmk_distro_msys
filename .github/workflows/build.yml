@@ -63,7 +63,9 @@ jobs:
 
     - name: Test QMK cli version
       run: |
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "mkdir -p /opt/uv/bin"
         .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "/opt/uv/tools/bin/qmk --version | grep -F ${{ steps.dotenv.outputs.qmk_cli_ver }}"
+        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "ls /opt/uv/bin/"
 
     - name: Patch Up MSYS
       shell: 'bash {0}'
