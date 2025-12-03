@@ -5,7 +5,7 @@
   "author": "zvecr <git@zvecr.com>",
   "license": "GPL-3.0",
   "devDependencies": {
-    "vitepress": "^1.2.0"
+    "vitepress": "^1.6.4"
   },
   "scripts": {
     "serve": "vitepress dev  --host 0.0.0.0 docs",
