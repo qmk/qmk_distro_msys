@@ -31,6 +31,11 @@ pacman -Syu
 
 # If needed, close QMK MSYS, run it again from Start menu. Update the rest with:
 pacman -Su
+
+# Rerun bootstrap
+export UV_NO_MODIFY_PATH=1
+export UV_PYTHON_INSTALL_DIR=/opt/uv/bin
+curl -fsSL https://install.qmk.fm | sh -s -- --confirm --skip-qmk-cli --skip-windows-drivers
 ```
 
 </details>
