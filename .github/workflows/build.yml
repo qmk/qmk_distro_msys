@@ -101,7 +101,7 @@ jobs:
     needs: [build]
 
     steps:
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           name: installer
 
@@ -124,7 +124,7 @@ jobs:
     if: github.event.release.tag_name
 
     steps:
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           name: installer
           path: .build
@@ -145,7 +145,7 @@ jobs:
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 
     steps:
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           name: installer
           path: .build
