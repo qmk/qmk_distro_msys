@@ -145,16 +145,26 @@ jobs:
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 
     steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-tags: true
+
       - uses: actions/download-artifact@v7
         with:
           name: installer
           path: .build
 
-      - uses: marvinpinto/action-automatic-releases@latest
+      - name: Delete release
+        run: gh release delete beta --cleanup-tag || true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - uses: softprops/action-gh-release@v2
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "beta"
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          tag_name: "beta"
           prerelease: true
-          title: "Latest Beta"
+          name: "Latest Beta"
           files: |
-            .build/*
+            .build/*.exe
+            .build/*.exe.sha256
