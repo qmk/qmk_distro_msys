@@ -128,7 +128,7 @@ jobs:
       - name: Create Hash
         shell: 'bash {0}'
         run: |
-          sha256sum .build/QMK_WSL.exe > .build/QMK_WSL.exe.sha256
+          sha256sum .build/QMK_MSYS.exe > .build/QMK_MSYS.exe.sha256
 
       - uses: softprops/action-gh-release@v2
         env:
@@ -157,7 +157,7 @@ jobs:
       - name: Create Hash
         shell: 'bash {0}'
         run: |
-          sha256sum .build/QMK_WSL.exe > .build/QMK_WSL.exe.sha256
+          sha256sum .build/QMK_MSYS.exe > .build/QMK_MSYS.exe.sha256
 
       - name: Delete release
         run: gh release delete beta --cleanup-tag || true
