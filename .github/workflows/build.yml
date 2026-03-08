@@ -87,7 +87,6 @@ jobs:
       shell: 'bash {0}'
       run: |
         iscc installer/install.iss //DMyAppVersion=${VERSION:-2.0.0}
-        sha256sum .build/QMK_MSYS.exe > .build/QMK_MSYS.exe.sha256
 
     - uses: actions/upload-artifact@v7
       with:
