@@ -87,12 +87,11 @@ jobs:
       shell: 'bash {0}'
       run: |
         iscc installer/install.iss //DMyAppVersion=${VERSION:-2.0.0}
-        sha256sum .build/QMK_MSYS.exe > .build/QMK_MSYS.exe.sha256
 
-    - uses: actions/upload-artifact@v6
+    - uses: actions/upload-artifact@v7
       with:
-        name: installer
         path: .build/QMK_MSYS.*
+        archive: false
         include-hidden-files: true
 
   test:
@@ -101,9 +100,7 @@ jobs:
     needs: [build]
 
     steps:
-      - uses: actions/download-artifact@v7
-        with:
-          name: installer
+      - uses: actions/download-artifact@v8
 
       - name: Run Install
         run: |
@@ -124,10 +121,14 @@ jobs:
     if: github.event.release.tag_name
 
     steps:
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         with:
-          name: installer
           path: .build
+
+      - name: Create Hash
+        shell: 'bash {0}'
+        run: |
+          sha256sum .build/QMK_WSL.exe > .build/QMK_WSL.exe.sha256
 
       - uses: softprops/action-gh-release@v2
         env:
@@ -149,10 +150,14 @@ jobs:
         with:
           fetch-tags: true
 
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         with:
-          name: installer
           path: .build
+
+      - name: Create Hash
+        shell: 'bash {0}'
+        run: |
+          sha256sum .build/QMK_WSL.exe > .build/QMK_WSL.exe.sha256
 
       - name: Delete release
         run: gh release delete beta --cleanup-tag || true
