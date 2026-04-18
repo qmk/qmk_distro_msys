@@ -55,7 +55,7 @@ jobs:
     - name: Install CLI
       run: |
         .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "pacman --needed --noconfirm --disable-download-timeout -S pactoys"
-        .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "pacboy sync --needed --noconfirm --disable-download-timeout base-devel: toolchain:x clang:x tree: git: jq:x ripgrep:x python-appdirs:x python-qmk:x hidapi:x"
+        .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "pacboy sync --needed --noconfirm --disable-download-timeout base-devel: toolchain:p clang:p tree: git: jq:p ripgrep:p python-appdirs:p python-qmk:p hidapi:p"
 
     - name: Install QMK Additional Tools
       run: |
