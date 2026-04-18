@@ -56,9 +56,9 @@ Type: files; Name: "{commonappdata}\Microsoft\Windows Terminal\Fragments\QMK\qmk
 Filename: "{app}\qmk_driver_installer.exe"; WorkingDir: "{app}"; Parameters: " --all --force drivers.txt"; StatusMsg: "Installing Drivers..."; Tasks: installdrivers; Flags: runhidden
 
 [Icons]
-Name: "{app}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-NoSingle -NoUpdate -icon ""{app}\icon.ico"" -title ""{#MyAppName}"" -run ""{app}\usr\bin\bash.exe"" -l -i -cur_console:m:"""""; IconFilename: "{app}\icon.ico"
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-NoSingle -NoUpdate -icon ""{app}\icon.ico"" -title ""{#MyAppName}"" -run ""{app}\usr\bin\bash.exe"" -l -i -cur_console:m:"""""; IconFilename: "{app}\icon.ico"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\conemu\ConEmu64.exe"; Parameters: "-NoSingle -NoUpdate -icon ""{app}\icon.ico"" -title ""{#MyAppName}"" -run ""{app}\usr\bin\bash.exe"" -l -i -cur_console:m:"""""; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
+Name: "{app}\{#MyAppName}"; Filename: "{app}\terminal\WindowsTerminal.exe"; Parameters: "--title ""QMK MSYS"""; IconFilename: "{app}\icon.ico"
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\terminal\WindowsTerminal.exe"; Parameters: "--title ""QMK MSYS"""; IconFilename: "{app}\icon.ico"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\terminal\WindowsTerminal.exe"; Parameters: "--title ""QMK MSYS"""; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
 
 [Code]
 
