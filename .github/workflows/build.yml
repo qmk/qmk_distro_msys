@@ -48,23 +48,23 @@ jobs:
 
     - name: Update MSYS
       run: |
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm || true"
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Syu --noconfirm"
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman -Su --noconfirm"
+        .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "pacman -Syu --noconfirm || true"
+        .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "pacman -Syu --noconfirm"
+        .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "pacman -Su --noconfirm"
 
     - name: Install CLI
       run: |
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacman --needed --noconfirm --disable-download-timeout -S pactoys"
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "pacboy sync --needed --noconfirm --disable-download-timeout base-devel: toolchain:x clang:x tree: git: jq:x ripgrep:x python-appdirs:x python-qmk:x hidapi:x"
+        .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "pacman --needed --noconfirm --disable-download-timeout -S pactoys"
+        .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "pacboy sync --needed --noconfirm --disable-download-timeout base-devel: toolchain:x clang:x tree: git: jq:x ripgrep:x python-appdirs:x python-qmk:x hidapi:x"
 
     - name: Install QMK Additional Tools
       run: |
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "mkdir -p /opt/uv/bin"
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "export UV_NO_MODIFY_PATH=1 && export UV_PYTHON_INSTALL_DIR=/opt/uv/bin && curl -fsSL https://install.qmk.fm | sh -s -- --confirm --skip-qmk-cli --skip-windows-drivers"
+        .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "mkdir -p /opt/uv/bin"
+        .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "export UV_NO_MODIFY_PATH=1 && export UV_PYTHON_INSTALL_DIR=/opt/uv/bin && curl -fsSL https://install.qmk.fm | sh -s -- --confirm --skip-qmk-cli --skip-windows-drivers"
 
     - name: Test QMK cli version
       run: |
-        .build\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -c "qmk --version | grep -F ${{ steps.dotenv.outputs.qmk_cli_ver }}"
+        .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "qmk --version | grep -F ${{ steps.dotenv.outputs.qmk_cli_ver }}"
 
     - name: Patch Up MSYS
       shell: 'bash {0}'
@@ -108,7 +108,7 @@ jobs:
 
       - name: Run QMK cli
         env:
-          MSYSTEM: MINGW64
+          MSYSTEM: UCRT64
         shell: cmd
         run: |
             "%ProgramFiles%\QMK_MSYS\usr\bin\bash.exe" -l -c 'qmk -h' | findstr /c:"CLI wrapper for running QMK commands"
