@@ -6,7 +6,7 @@
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/qmk/qmk_distro_msys/build.yml?logo=github&style=for-the-badge)](https://github.com/qmk/qmk_distro_msys/actions?query=workflow%3ACI+branch%3Amain)
 [![Discord](https://img.shields.io/discord/440868230475677696.svg?logo=discord&logoColor=white&color=7289DA&style=for-the-badge)](https://discord.gg/qmk)
 
-Want to get started with [QMK Firmware](https://qmk.fm) quickly? Running Windows 8/10 and want to avoid installation headaches? Look no further!
+Want to get started with [QMK Firmware](https://qmk.fm) quickly? Look no further!
 
 Bundling MSYS2 + QMK CLI together, this installer package aims to give you a QMK build environment with as little effort as possible.
 
