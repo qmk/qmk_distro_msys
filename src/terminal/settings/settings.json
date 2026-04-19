@@ -1,0 +1,42 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [],
+    "alwaysShowTabs": false,
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{c597b627-35ed-49d4-a376-d7228041a711}",
+    "keybindings": 
+    [
+        {
+            "id": "Terminal.CopyToClipboard",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "Terminal.PasteFromClipboard",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "Terminal.DuplicatePaneAuto",
+            "keys": "alt+shift+d"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": {},
+        "list": 
+        [
+            {
+                "commandline": "%SystemDrive%/QMK_MSYS/shell_connector.cmd",
+                "guid": "{c597b627-35ed-49d4-a376-d7228041a711}",
+                "hidden": false,
+                "icon": "%SystemDrive%/QMK_MSYS/icon.ico",
+                "name": "QMK MSYS"
+            }
+        ]
+    },
+    "schemes": [],
+    "showTabsInTitlebar": false,
+    "theme": "system",
+    "themes": []
+}

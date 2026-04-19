@@ -33,11 +33,12 @@ jobs:
         curl -L -O ${{ steps.dotenv.outputs.msys_url }}
         tar -xvf msys2-base-x86_64-*.tar.xz --one-top-level=.build
 
-    - name: Download/Unpack ConEmu
+    - name: Download/Unpack Terminal
       shell: bash
       run: |
-        curl -L -O ${{ steps.dotenv.outputs.conemu_url }}
-        7z x ConEmuPack.*.7z -o.build/msys64/conemu/
+        curl -L -O ${{ steps.dotenv.outputs.Terminal_url }}
+        7z x Microsoft.WindowsTerminal*.zip -o.build/msys64/
+        mv .build/msys64/terminal* .build/msys64/terminal
 
     - name: Download Driver Installer
       shell: bash
