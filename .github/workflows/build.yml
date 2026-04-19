@@ -57,6 +57,12 @@ jobs:
         .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "pacman --needed --noconfirm --disable-download-timeout -S pactoys"
         .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "pacboy sync --needed --noconfirm --disable-download-timeout base-devel: toolchain:p clang:p tree: git: jq:p ripgrep:p python-appdirs:p python-qmk:p hidapi:p"
 
+    - name: Patch CLI
+      shell: 'bash {0}'
+      run: |
+        sed -i 's/MINGW64/UCRT64/g' .build/msys64/ucrt64/lib/python3.14/site-packages/qmk_cli/script_qmk.py
+        sed -i 's/mingw64/ucrt64/g' .build/msys64/ucrt64/lib/python3.14/site-packages/qmk_cli/script_qmk.py
+
     - name: Install QMK Additional Tools
       run: |
         .build\msys64\msys2_shell.cmd -ucrt64 -defterm -no-start -c "mkdir -p /opt/uv/bin"
