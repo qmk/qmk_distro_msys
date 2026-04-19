@@ -392,7 +392,7 @@
 				<line data="# alias glb=git-log --branches --date-order"/>
 				<line data=" "/>
 				<line data="set CHERE_INVOKING=1"/>
-				<line data="set MSYSTEM=MINGW64"/>
+				<line data="set MSYSTEM=UCRT64"/>
 				<line data="set MSYS2_PATH_TYPE=inherit"/>
 			</value>
 			<value name="CTS.Intelligent" type="hex" data="01"/>
