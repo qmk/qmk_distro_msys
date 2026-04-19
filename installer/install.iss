@@ -6,7 +6,7 @@
 #define MyAppPublisher "QMK"
 #define MyAppURL "https://qmk.fm"
 #ifndef MyAppVersion
-# define MyAppVersion "2.0.0"
+# define MyAppVersion "3.0.0"
 #endif
 
 [Setup]

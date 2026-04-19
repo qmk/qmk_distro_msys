@@ -81,12 +81,12 @@ jobs:
         mkdir -p .build/msys64/dev/mqueue
         cp -rf src/* .build/msys64/
         echo "VERSION_ID=$GITHUB_SHA" >> .build/msys64/etc/qmk-release
-        echo "VERSION=${VERSION:-2.0.0}" >> .build/msys64/etc/qmk-release
+        echo "VERSION=${VERSION:-3.0.0}" >> .build/msys64/etc/qmk-release
 
     - name: Create Installer
       shell: 'bash {0}'
       run: |
-        iscc installer/install.iss //DMyAppVersion=${VERSION:-2.0.0}
+        iscc installer/install.iss //DMyAppVersion=${VERSION:-3.0.0}
 
     - uses: actions/upload-artifact@v7
       with:
